@@ -1,0 +1,103 @@
+/* 隐藏右侧内容 */
+.hidden {
+    /* visibility: hidden; */
+    display: none;
+    opacity: 0;
+}
+
+/* 显示右侧内容 */
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 右侧内容容器 */
+#right-column-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+}
+
+/* 显示右侧内容 */
+#right-column-container.show {
+    transform: translateX(0);
+}
+
+/* 隐藏右侧内容 */
+#right-column-container.hidden {
+    transform: translateX(100%);
+}
+
+/* 右侧内容动画 */
+.slide-in-right {
+    animation: slideInRight 0.5s ease-in-out both;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-indicator {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fit-size {
+    /* 通过宽度对齐左右高度 */
+    aspect-ratio: 1/1;
+}

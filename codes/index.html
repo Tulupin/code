@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier & Generator</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div class="grid-box max-w-3xl w-full grid grid-cols-1 gap-12 px-12 py-10 bg-white shadow-lg rounded-lg">
+            <!-- Left Column -->
+            <div class="col-span-1">
+                <h1 class="text-3xl font-semibold mb-8 text-center">Upload and Process</h1>
+                <div class="center" style="display: flex; justify-content: center; flex-direction: column;">
+                    <div id="upload-form" class="flex flex-col items-center">
+                        <input type="text" id="text-input" placeholder="Enter your text here"
+                            class="border border-blue-500 text-gray-900 py-2 px-4 rounded w-full md:w-2/3 mb-4 md:mb-0 focus:ring-2 focus:ring-blue-700"
+                            style="outline: none;">
+                        <button type="button" id="generate-similar"
+                            class="mt-8 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-span-1 result-container hidden">
+                <h1 class="text-3xl font-semibold mb-8 text-center">Results</h1>
+                <div class="result mt-8 text-center">
+                    <div class="overlay opacity-0 flex justify-center items-center">
+                        <div class="loading-indicator border-t-4 border-blue-500 border-solid rounded-full h-12 w-12">
+                        </div>
+                        <span class="text-xl text-gray-900 font-semibold ml-4">Generating...</span>
+                    </div>
+                    <div class="generated-image relative">
+                        <img id="generated-image"
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+                            alt="Generated" class="max-w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
